@@ -1,6 +1,8 @@
 
 # Minimal project to reproduce the ExoPlayer skip bug
 
+https://github.com/androidx/media/issues/786
+
 ## TLDR
 
 ExoPlayer sometimes scips some frames (several seconds) when playing a video from a remote server.
