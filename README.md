@@ -1,45 +1,45 @@
-
-# Minimal project to reproduce the ExoPlayer skip bug
+# Minimal Project to Reproduce the ExoPlayer Skip Bug
 
 https://github.com/androidx/media/issues/786
 
-## TLDR
+## TL;DR
 
-ExoPlayer sometimes scips some frames (several seconds) when playing a video from a remote server.
+ExoPlayer occasionally skips several seconds' worth of frames when playing a video from a remote server.
 
-## ExoPlayer version
+## ExoPlayer Version
+
 
 ```
 media3-exoplayer = "1.1.1" (and at least 2 previous)
 ```
 
-## Steps to reproduce
+## Steps to Reproduce
 
-1. Create an Android emulator API 30, x86 or x86_64 ABI, Android 11.0 (Google APIs or Google Play)
-2. Run the app on the emulator
-3. Close the app after playback finishes
-4. Run the app again (repeat if necessary)
+1. Create an Android emulator with API 30, x86, or x86_64 ABI, Android 11.0 (Google APIs or Google Play).
+2. Run the application on the emulator.
+3. Close the application after playback finishes.
+4. Run the application again (repeat if necessary).
 
-## Expected result
+## Expected Result
 
-Video starts playing from the beginning and plays to the end.
+The video should start playing from the beginning and play through to the end without issues.
 
-## Actual result
+## Actual Result
 
-Video starts playing from the beginning and skips some frames at some time in the middle of the video.
+The video starts from the beginning but then skips some frames at a certain point in the middle of the playback.
 
 ## Notes
 
-- The bug is not reproducible on any other emulator (API 28, 29, 31, 32, 33, 34) or hard to reproduce
-- The bug is not reproducible on a physical device (Samsung Galaxy SM-7970, Android 13), or hard to reproduce
-- The bug is not reproducible when playing from a local asset, or when there is no network delay.
-- The bug reproduced while playing a single `mp4` and also while playing a `dash` stream consisting of an `mp4` chunks.
+- The bug cannot be replicated on any other emulator versions (API 28, 29, 31, 32, 33, 34) or is hard to replicate.
+- The bug cannot be replicated on a physical device (Samsung Galaxy SM-G970, Android 13), or is hard to replicate.
+- The bug is not present when playing from a local asset or when there is no network delay.
+- The bug has been reproduced while playing a single `mp4` file as well as while playing a `dash` stream composed of `mp4` chunks.
 
 ## Video
 
-To reproduce the bug, use the the script to generate a video `python gen_mp4.py` (in `app/src/main/assets/gen`). 
+To replicate the bug, use the script `python gen_mp4.py` found in `app/src/main/assets/gen`. 
 The script requires `ffmpeg` to be installed.
-Video consists of several chunks concatenated together. Each chunk is a 3 second video with a random color.
+The video is composed of several chunks concatenated together, with each chunk being a 3-second video displaying a random color.
 
 ## Code to reproduce the bug
 
