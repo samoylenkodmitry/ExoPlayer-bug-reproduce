@@ -35,7 +35,7 @@ Video starts playing from the beginning and skips some frames at some time in th
 
 ## Video
 
-To reproduce the bug, use the the script to generate a video `python gen_mp4.py`. 
+To reproduce the bug, use the the script to generate a video `python gen_mp4.py` (in `app/src/main/assets/gen`). 
 The script requires `ffmpeg` to be installed.
 Video consists of several chunks concatenated together. Each chunk is a 3 second video with a random color.
 
